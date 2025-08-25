@@ -28,16 +28,16 @@ It includes authentication via **JWT tokens**, uses **AutoMapper** for DTO mappi
 1. Clone the repository:
    ```bash
    git clone https://github.com/Kostylll/junior-backend-assessment.git
-
-3. Navigate to the project folder:
+   ```
+2 Navigate to the project folder:
    ```bash
    cd ViaCepAPI
-  
-4.Restore dependencies:
+  ```
+3.Restore dependencies:
   ```bash
   dotnet restore
    ```
-5.Configure the database connection in appsettings.json.
+4.Configure the database connection in appsettings.json.
 ```bash
   {
     "ConnectionStrings": {
@@ -50,14 +50,14 @@ It includes authentication via **JWT tokens**, uses **AutoMapper** for DTO mappi
     }
   }
 ```
-6. Apply Migrations (Open Infra.Data on the terminal to run the commands)
+5. Apply Migrations (Open Infra.Data on the terminal to run the commands)
    dotnet ef migrations add InitialCreate
    dotnet ef database update
 
-8.Executar a aplicação
+6.Executar a aplicação
   dotnet run
 
-9.Acessar a documentação Swagger
+7.Acessar a documentação Swagger
  http://localhost:{PORT}/swagger/index.html
 
 License
