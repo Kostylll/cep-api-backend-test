@@ -32,11 +32,13 @@ It includes authentication via **JWT tokens**, uses **AutoMapper** for DTO mappi
 3. Navigate to the project folder:
    ```bash
    cd ViaCepAPI
-   
+  
 4.Restore dependencies:
+  ```bash
   dotnet restore
-
+   ```
 5.Configure the database connection in appsettings.json.
+```bash
   {
     "ConnectionStrings": {
       "DefaultConnection": "Server=localhost;Database=ViaCepDb;User=root;Password=123456;"
@@ -47,7 +49,7 @@ It includes authentication via **JWT tokens**, uses **AutoMapper** for DTO mappi
       "Audience": "ViaCepAPI"
     }
   }
-
+```
 6. Apply Migrations (Open Infra.Data on the terminal to run the commands)
    dotnet ef migrations add InitialCreate
    dotnet ef database update
