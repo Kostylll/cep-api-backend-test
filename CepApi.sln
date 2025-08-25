@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CepApi.Application.Abstract
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CepApi.Application.Infra.Data", "ViaCepApi.Application.Infra.Data\CepApi.Application.Infra.Data.csproj", "{F313128A-FDFC-4FA4-89CA-5301A2D091CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CepApi.Application.UnitTests", "CepApi.Application.UnitTests\CepApi.Application.UnitTests.csproj", "{98129B67-628A-4D5E-B138-3A253A69EA27}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{F313128A-FDFC-4FA4-89CA-5301A2D091CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F313128A-FDFC-4FA4-89CA-5301A2D091CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F313128A-FDFC-4FA4-89CA-5301A2D091CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98129B67-628A-4D5E-B138-3A253A69EA27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98129B67-628A-4D5E-B138-3A253A69EA27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98129B67-628A-4D5E-B138-3A253A69EA27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98129B67-628A-4D5E-B138-3A253A69EA27}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
