@@ -1,5 +1,6 @@
 ﻿using CepApi.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace CepApi.Controllers
 {
@@ -15,7 +16,8 @@ namespace CepApi.Controllers
         }
 
         [HttpGet("{cep}")]
-        public async Task<IActionResult> GetCep(string cep)
+        [SwaggerOperation(Summary = "Returns CEP Info",Description = "Get the informations about the CEP you put")]
+        public async Task<IActionResult> GetCep([FromRoute] string cep)
         {
             var address = await _cepServices.GetCep(cep);
 
@@ -26,6 +28,7 @@ namespace CepApi.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Returns all CEP", Description = "Returns CEP search history")]
         public async Task<IActionResult> GetAllAddresses([FromQuery] int page = 1, [FromQuery] int pageSize = 20)
         {
             var addresses = await _cepServices.GetAllAdresses(page, pageSize);
@@ -38,7 +41,8 @@ namespace CepApi.Controllers
 
 
         [HttpGet("city")]
-        public async Task<IActionResult> GetByCity(string city)
+        [SwaggerOperation(Summary = "Return by City",Description = "Return CEP seatch history by city")]
+        public async Task<IActionResult> GetByCity([FromQuery] string city)
         {
             var addresses = await _cepServices.GetByCityAsync(city);
 
