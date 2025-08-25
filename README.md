@@ -51,14 +51,17 @@ It includes authentication via **JWT tokens**, uses **AutoMapper** for DTO mappi
   }
 ```
 5. Apply Migrations (Open Infra.Data on the terminal to run the commands)
+   ```bash
    dotnet ef migrations add InitialCreate
    dotnet ef database update
-
+   ```
 6.Executar a aplicação
+ ```bash
   dotnet run
-
+```
 7.Acessar a documentação Swagger
+  ```bash
  http://localhost:{PORT}/swagger/index.html
-
+   ```
 License
 MIT License © Pedro Vanderlei
