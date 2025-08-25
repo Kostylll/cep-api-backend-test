@@ -10,9 +10,13 @@ namespace CepApi.Extension
         public static IServiceCollection AddFeatureServices(this IServiceCollection services)
         {
             services.AddAutoMapper(typeof(AddressProfile));
-            services.AddServices();
-            services.AddControllers();
+            services.AddControllers(options =>
+            {
+                options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true;
+                options.AllowEmptyInputInBodyModelBinding = true;
+            });
             services.AddHttpClient();
+            services.AddServices();
             return services;
         }
 
