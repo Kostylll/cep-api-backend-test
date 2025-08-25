@@ -19,7 +19,7 @@ namespace CepApi.Application.Infra.Data.Context
             public CepApiDbContext CreateDbContext(string[] args)
             {
                 var optionBuilder = new DbContextOptionsBuilder<CepApiDbContext>();
-                var cnn = "Data Source=localhost;Database=CepApiDb;uid=root;password=Berimbau712!";
+                var cnn = "Data Source=localhost;Database=ViaCepDb;uid=root;password=Berimbau712!";
                 optionBuilder.UseMySql(cnn,ServerVersion.AutoDetect(cnn));
 
                 return new CepApiDbContext(optionBuilder.Options);

@@ -1,6 +1,6 @@
 using CepApi.Application.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
-using ViaCepApi.Extension;
+using CepApi.Extension;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,10 +10,13 @@ builder.Services.AddControllers();
 builder.Services.AddFeatureServices();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddControllers(
+options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
+builder.Services.AddControllers(x => x.AllowEmptyInputInBodyModelBinding = true);
 
 builder.Services.AddDbContext<CepApiDbContext>(options =>
 {
-    var cnn = builder.Configuration.GetConnectionString("CepApiDb");
+    var cnn = builder.Configuration.GetConnectionString("ViaCepDb");
     options.UseMySql(cnn, ServerVersion.AutoDetect(cnn));
 });
 

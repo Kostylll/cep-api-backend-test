@@ -17,12 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\CepApi.Application.Abstraction.Domain\CepApi.Application.Abstraction.Domain.csproj" />
+    <ProjectReference Include="..\ViaCepApi.Application.Infra.Data\CepApi.Application.Infra.Data.csproj" />
   </ItemGroup>
 
 </Project>
