@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ViaCep.Application.Abstraction.Domain.DTO
+namespace CepApi.Application.Abstraction.Domain.DTO
 {
     public class AddressDTO
     {

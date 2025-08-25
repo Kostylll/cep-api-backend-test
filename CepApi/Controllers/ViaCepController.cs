@@ -1,6 +1,6 @@
 ﻿namespace CepApi.Controllers
 {
-    public class ViaCepController
+    public class CepApiController
     {
     }
 }

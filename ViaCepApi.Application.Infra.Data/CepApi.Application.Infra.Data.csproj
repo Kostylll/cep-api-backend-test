@@ -16,4 +16,8 @@
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="9.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CepApi.Application.Abstraction.Domain\CepApi.Application.Abstraction.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

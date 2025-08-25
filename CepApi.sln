@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CepApi.Application", "CepAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CepApi.Application.Abstraction.Domain", "CepApi.Application.Abstraction.Domain\CepApi.Application.Abstraction.Domain.csproj", "{CC31AC81-228E-444A-8A55-859B3E8B093F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViaCepApi.Application.Infra.Data", "ViaCepApi.Application.Infra.Data\ViaCepApi.Application.Infra.Data.csproj", "{F313128A-FDFC-4FA4-89CA-5301A2D091CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CepApi.Application.Infra.Data", "ViaCepApi.Application.Infra.Data\CepApi.Application.Infra.Data.csproj", "{F313128A-FDFC-4FA4-89CA-5301A2D091CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

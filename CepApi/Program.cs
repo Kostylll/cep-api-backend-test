@@ -1,13 +1,24 @@
+using CepApi.Application.Infra.Data.Context;
+using Microsoft.EntityFrameworkCore;
+using ViaCepApi.Extension;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddFeatureServices();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDbContext<CepApiDbContext>(options =>
+{
+    var cnn = builder.Configuration.GetConnectionString("CepApiDb");
+    options.UseMySql(cnn, ServerVersion.AutoDetect(cnn));
+});
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

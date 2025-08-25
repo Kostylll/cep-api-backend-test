@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ViaCep.Application.Abstraction.Domain.Models
+namespace CepApi.Application.Abstraction.Domain.Models
 {
     public class Address
     {
