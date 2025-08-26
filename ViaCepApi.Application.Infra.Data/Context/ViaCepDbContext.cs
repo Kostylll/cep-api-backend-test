@@ -6,15 +6,10 @@ namespace CepApi.Application.Infra.Data.Context
 {
     public class CepApiDbContext : DbContext
     {
-        public CepApiDbContext(DbContextOptions<CepApiDbContext> options) : base(options) {
-
-        }
+        public CepApiDbContext(DbContextOptions<CepApiDbContext> options) : base(options) {}
 
         public DbSet<Address> Address { get; set; }
-
         public DbSet<Login> Login { get; set; }
-
-
 
         public class IntegrationContextFactory : IDesignTimeDbContextFactory<CepApiDbContext>
         {

@@ -29,7 +29,6 @@ namespace CepApi.Application.Services
          
        
         }
-
         public async Task<LoginDTO> CreateUser(LoginDTO login)
         {
 
@@ -45,12 +44,13 @@ namespace CepApi.Application.Services
             await _context.Login.AddAsync(entity);
             await _context.SaveChangesAsync();
 
-
             return _mapper.Map<LoginDTO>(entity);
+
         }
 
         public async Task<TokenDTO> LoginAsync(LoginDTO login)
         {
+
             if (login == null)
                 throw new ArgumentNullException(nameof(login));
 
@@ -62,7 +62,6 @@ namespace CepApi.Application.Services
 
             if (!decodedPassword) 
                 throw new Exception("Senha inválida.");
-
 
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.UTF8.GetBytes(_config["Jwt:Key"]);
@@ -88,6 +87,7 @@ namespace CepApi.Application.Services
                 Token = jwt,
                 Expiration = token.ValidTo
             };
+
         }
     }
 }

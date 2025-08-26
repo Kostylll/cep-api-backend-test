@@ -3,6 +3,7 @@ using CepApi.Application.Interfaces;
 using CepApi.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Swashbuckle.AspNetCore.Annotations;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -24,17 +25,18 @@ namespace CepApi.Controllers
         }
 
         [HttpPost("login")]
+        [SwaggerOperation(Summary = "Login", Description = "Login to receive a Token")]
         public async Task<IActionResult> Login([FromBody] LoginDTO login)
         {
             if (string.IsNullOrEmpty(login.Email) || string.IsNullOrEmpty(login.Password))
                 return BadRequest("Email e senha são obrigatórios.");
 
             var result = await _loginServices.LoginAsync(login);
-
             return Ok(result);
         }
 
         [HttpPost("createUser")]
+        [SwaggerOperation(Summary = "Create User", Description = "Create a User to use as login")]
         public async Task<IActionResult> CreateUser([FromBody] LoginDTO login)
         {
             if (string.IsNullOrEmpty(login.Email) || string.IsNullOrEmpty(login.Password))

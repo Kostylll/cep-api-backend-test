@@ -23,5 +23,6 @@ namespace CepApi.Application.Abstraction.Domain.Models
         public string? Gia { get; set; }            
         public string? Ddd { get; set; }            
         public string? Siafi { get; set; }         
+
     }
 }

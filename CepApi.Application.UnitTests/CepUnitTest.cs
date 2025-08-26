@@ -8,6 +8,7 @@ namespace CepApi.Application.UnitTests
         [Fact]
         public void DeveDesserializarJsonDeCepCorretamente()
         {
+
             var json = @"{
                 ""cep"": ""01001-000"",
                 ""logradouro"": ""Praça da Sé"",
@@ -28,7 +29,7 @@ namespace CepApi.Application.UnitTests
             Assert.Equal("Praça da Sé", address.Logradouro);
             Assert.Equal("São Paulo", address.Localidade);
             Assert.Equal("SP", address.Uf);
+
         }
     }
-
 }

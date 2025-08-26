@@ -10,5 +10,6 @@ namespace CepApi.Application.Abstraction.Domain.DTO
     {
         public string Token { get; set; }
         public DateTime Expiration { get; set; }
+
     }
 }

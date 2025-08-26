@@ -14,7 +14,5 @@ namespace CepApi.Application.Abstraction.Domain.DTO
         public string? Localidade { get; set; }
         public string? Uf { get; set; }
 
-
-
     }
 }

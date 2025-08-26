@@ -33,6 +33,7 @@ namespace CepApi.Application.Services
 
         public async Task<AddressDTO> GetCep(string cep)
         {
+
             if (string.IsNullOrEmpty(cep))
                 throw new ArgumentException("Cep Inválido.", nameof(cep));
 
@@ -53,16 +54,17 @@ namespace CepApi.Application.Services
             if (address == null || string.IsNullOrEmpty(address.Cep))
                 return null;
 
-
             await _context.Address.AddAsync(address);
             await _context.SaveChangesAsync();
 
             return _mapper.Map<AddressDTO>(address);
+
         }
 
 
         public async Task<List<Address>> GetAllAdresses(int page = 1, int pageSize = 20)
         {
+
             if (pageSize <= 0) pageSize = 1;
             if (pageSize <= 0 || pageSize > 100) pageSize = 20;
 
@@ -71,10 +73,12 @@ namespace CepApi.Application.Services
             var addresses = await query.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
 
             return addresses;
+
         }
 
         public async Task<IEnumerable<AddressDTO>> GetByCityAsync(string city)
         {
+
             if (string.IsNullOrEmpty(city))
                 return new List<AddressDTO>();
 
@@ -86,6 +90,7 @@ namespace CepApi.Application.Services
             var result = _mapper.Map<IEnumerable<AddressDTO>>(addresses);
 
             return result;
+
         }
     }
 }
