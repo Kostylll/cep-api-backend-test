@@ -89,7 +89,7 @@ To use the API, you first need to create a user and then log in to obtain an aut
 1. Create a User
 Send a request to:
  ```bash
-https://localhost:44347/api/Auth/createUser
+https://localhost:{PORT}/api/Auth/createUser
 ```
 Provide a valid email and a password.
 The password is securely stored using BCrypt.
@@ -98,7 +98,7 @@ Make sure to remember your password, as it will be required for login.
 2. Login
 Once the user is created, log in with your credentials at:
  ```bash
-https://localhost:44347/api/Auth/login
+https://localhost:{PORT}/api/Auth/login
 ```
 If the login is successful, the API will return a JWT token.
 
