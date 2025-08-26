@@ -37,18 +37,22 @@ It includes authentication via **JWT tokens**, uses **AutoMapper** for DTO mappi
   ```bash
   dotnet restore
    ```
-4.Configure the database connection in appsettings.json.
+4.Configure the database connection in appsettings.json and ViaCepDbContext.
 ```bash
   {
     "ConnectionStrings": {
       "DefaultConnection": "Server=localhost;Database=ViaCepDb;User=root;Password=123456;"
     },
     "Jwt": {
-      "Key": "SUA_CHAVE_SECRETA",
+      "Key": "your_secret_key",
       "Issuer": "ViaCepAPI",
       "Audience": "ViaCepAPI"
     }
   }
+```
+
+```bash
+var cnn = "Data Source=localhost;Database=ViaCepDb;uid=root;password=your_password!";
 ```
 5. Apply Migrations (Open Infra.Data on the terminal to run the commands)
    ```bash
@@ -63,5 +67,40 @@ It includes authentication via **JWT tokens**, uses **AutoMapper** for DTO mappi
   ```bash
  http://localhost:{PORT}/swagger/index.html
    ```
+
+### Authentication
+
+To use the API, you first need to create a user and then log in to obtain an authentication token.
+
+1. Create a User
+Send a request to:
+ ```bash
+https://localhost:44347/api/Auth/createUser
+```
+1.Provide a valid email and a password.
+
+The password is securely stored using BCrypt.
+Make sure to remember your password, as it will be required for login.
+
+2. Login
+   
+Once the user is created, log in with your credentials at:
+ ```bash
+https://localhost:44347/api/Auth/login
+```
+If the login is successful, the API will return a JWT token.
+
+3. Using the Token
+
+Copy the returned token.
+Use it to authorize your requests in Swagger or tools like Postman.
+After authorization, you are free to test and interact with all available endpoints in the ViaCep API.
+
+
+
+
+
+
+
 License
 MIT License © Pedro Vanderlei
