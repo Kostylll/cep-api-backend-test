@@ -9,6 +9,10 @@ namespace CepApi.Application.Mapper
         public AddressProfile()
         {
             CreateMap<Address, AddressDTO>();
+            CreateMap<AddressDTO, Address>();
+
+            CreateMap<Login, LoginDTO>();
+            CreateMap<LoginDTO, Login>();
         }
     }
 }

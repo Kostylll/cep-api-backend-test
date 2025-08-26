@@ -12,6 +12,8 @@ namespace CepApi.Application.Infra.Data.Context
 
         public DbSet<Address> Address { get; set; }
 
+        public DbSet<Login> Login { get; set; }
+
 
 
         public class IntegrationContextFactory : IDesignTimeDbContextFactory<CepApiDbContext>
@@ -19,7 +21,7 @@ namespace CepApi.Application.Infra.Data.Context
             public CepApiDbContext CreateDbContext(string[] args)
             {
                 var optionBuilder = new DbContextOptionsBuilder<CepApiDbContext>();
-                var cnn = "Data Source=localhost;Database=ViaCepDb;uid=root;password=Berimbau712!";
+                var cnn = "Data Source=localhost;Database=ViaCepDb;uid=root;password=your_password!";
                 optionBuilder.UseMySql(cnn,ServerVersion.AutoDetect(cnn));
 
                 return new CepApiDbContext(optionBuilder.Options);

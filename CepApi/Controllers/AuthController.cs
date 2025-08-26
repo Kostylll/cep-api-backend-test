@@ -1,4 +1,6 @@
 ﻿using CepApi.Application.Abstraction.Domain.DTO;
+using CepApi.Application.Interfaces;
+using CepApi.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -12,34 +14,34 @@ namespace CepApi.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IConfiguration _config;
-        public AuthController(IConfiguration config) => _config = config;
+
+        private readonly ILoginServices _loginServices;
+        public AuthController(IConfiguration config, ILoginServices loginServices) {
+
+            _config = config;
+            _loginServices = loginServices;
+
+        }
 
         [HttpPost("login")]
-        public IActionResult Login([FromBody] LoginDTO login)
+        public async Task<IActionResult> Login([FromBody] LoginDTO login)
         {
-            if (login.Email != "admin@gmail.com" || login.Password != "1234")
-                return Unauthorized();
+            if (string.IsNullOrEmpty(login.Email) || string.IsNullOrEmpty(login.Password))
+                return BadRequest("Email e senha são obrigatórios.");
 
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.UTF8.GetBytes(_config["Jwt:Key"]);
+            var result = await _loginServices.LoginAsync(login);
 
-            var claims = new[]
-            {
-               new Claim(JwtRegisteredClaimNames.Sub, login.Email),
-               new Claim(ClaimTypes.Role, "Admin")
-            };
+            return Ok(result);
+        }
 
-            var token = new JwtSecurityToken(
-                issuer: _config["Jwt:Issuer"],
-                audience: _config["Jwt:Audience"],
-                claims: claims,
-                expires: DateTime.UtcNow.AddMinutes(10),
-                signingCredentials: new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256)
-            );
+        [HttpPost("createUser")]
+        public async Task<IActionResult> CreateUser([FromBody] LoginDTO login)
+        {
+            if (string.IsNullOrEmpty(login.Email) || string.IsNullOrEmpty(login.Password))
+                return BadRequest("Email e senha são obrigatórios.");
 
-            var jwt = tokenHandler.WriteToken(token);
-
-            return Ok(new { token = jwt });
+            var result = await _loginServices.CreateUser(login);
+            return Ok(result);
         }
     }
 }

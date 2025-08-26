@@ -72,6 +72,27 @@ namespace CepApi.Application.Infra.Data.Migrations
 
                     b.ToTable("Address");
                 });
+
+            modelBuilder.Entity("CepApi.Application.Abstraction.Domain.Models.Login", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Login");
+                });
 #pragma warning restore 612, 618
         }
     }

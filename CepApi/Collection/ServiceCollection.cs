@@ -23,6 +23,7 @@ namespace CepApi.Extension
         public static IServiceCollection AddServices(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddScoped<ICepServices, CepService>();
+            serviceCollection.AddScoped<ILoginServices, LoginService>();
             return serviceCollection;
         }
 
